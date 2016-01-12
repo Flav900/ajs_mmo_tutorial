@@ -10,7 +10,10 @@ var networkManager = {
     connected: false,
     connect: function (player) {
         mainPlayer = player;
-        serverSocket = io.connect('http://localhost:9192');
+		
+		var serverIP = "192.168.1.112";
+		
+        serverSocket = io.connect('http://"+serverIP+":9192');
         serverSocket.on('connect', onConnectedToServer);
 
         this.configureIncomingTraffic();
